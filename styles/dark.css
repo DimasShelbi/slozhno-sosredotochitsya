@@ -10,3 +10,18 @@
     чем стили в медиазапросе предпочтений пользователя
   */
 }
+:root .theme_dark{
+  --accent-color: #ff0070;
+  --font-size: 18px;
+  --font-weight: 700;
+  --line-height: 23px;
+  --main-color: #000028;
+  --font: 'IBM Plex Mono';
+  --text-color: #F1B2CE;
+  --decor-color: #FF0070;
+  --hover-color : rgba(255, 0, 112, 0.4);
+  --title-color:rgba(219, 0, 255, 1);
+  --hidden-var-style: #FF0070;
+  ;
+}
+
