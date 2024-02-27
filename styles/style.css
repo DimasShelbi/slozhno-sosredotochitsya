@@ -2,7 +2,7 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background-image: url(/images/cover-image-dark.png);
+  background-image: var(--background-theme);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -21,7 +21,6 @@
   color: var(--hidden-var-style);
   position: absolute;
   width: 52px;
-  height: 26px;
   margin: 20px 30px;
   justify-self: end;
 }
@@ -44,7 +43,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   max-width: 1024px;
-  min-height: 768px;
+  min-height: 100vh;
 }
 
 .decorated-zone::after {
@@ -87,9 +86,10 @@
 }
 
 .header__theme-menu-button {
+  appearance: none;
+  line-height: 18px;
   font-family: var(--font);
   font-size: var(--font-size);
-  line-height: 18px;
   font-weight: 400;
   text-align: center;
   text-transform: lowercase;
@@ -107,30 +107,43 @@
   border: 1px solid var(--hover-color);
 }
 
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
 .header__theme-menu-button:focus-visible {
   border-block-end: 1px solid var(--decor-color);
 }
 
 h1 {
   align-self: center;
-  text-wrap: nowrap;
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   font-family: var(--font);
   font-style: normal;
   color: var(--title-color);
-  text-shadow: 4px 4px 0px #ff0070;
+  text-shadow: var(--shadows);
   grid-row: 2;
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
 }
 
 .header_title {
   align-self: center;
   justify-self: end;
-  width: 491px;
+  max-width: 491px;
   grid-row: 3;
   grid-column: 2 / span3;
   margin-right: 20px;
   margin-bottom: 134px;
+}
+
+.title_decor {
+  font-family: var(--font);
+  font-style: normal;
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  background-color: var(--accent-color);
+  color: var(--main-color);
 }
 
 h2 {
@@ -140,16 +153,6 @@ h2 {
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: var(--decor-color);
-}
-
-h3 {
-  font-family: var(--font);
-  font-style: normal;
-  font-weight: var(--font-weight);
-  font-size: var(--font-size);
-  line-height: var(--line-height);
-  background-color: var(--accent-color);
-  color: var(--main-color);
 }
 
 h4 {
@@ -162,7 +165,7 @@ h4 {
   background-color: var(--accent-color);
 }
 
-p {
+.p_style {
   font-family: var(--font);
   font-style: normal;
   font-weight: 400;
@@ -172,7 +175,8 @@ p {
 }
 
 .link_effect {
-  text-shadow: 1px 2px var(--accent-color);
+  text-shadow: 2px 2px var(--accent-color);
+  text-decoration: none;
 }
 
 .link_effect:hover {
@@ -286,6 +290,10 @@ main {
 }
 
 @media (max-width: 800px) {
+  .decorated-zone {
+    min-height: 1024px;
+  }
+
   .header__theme-menu {
     grid-column: 3;
     justify-self: end;
@@ -317,6 +325,10 @@ main {
     margin: 10px 20px;
   }
 
+  .decorated-zone {
+    min-height: 668px;
+  }
+
   .decorated-zone::before {
     margin: 10px;
   }
@@ -331,7 +343,6 @@ main {
 
   h1 {
     line-height: 95px;
-    text-wrap: wrap;
     align-self: flex-end;
   }
   .header_title {
